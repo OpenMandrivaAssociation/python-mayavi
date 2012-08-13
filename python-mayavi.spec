@@ -54,7 +54,7 @@ XPID=$!
 export DISPLAY=:100.0
 %__python setup.py build
 %__python setup.py build_docs
-kill -9 $XPID
+kill -9 $XPID || /bin/true
 mkdir html
 mv docs/build/mayavi/html html/mayavi
 mv docs/build/tvtk/html html/tvtk
