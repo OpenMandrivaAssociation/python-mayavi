@@ -1,22 +1,13 @@
 %define module	mayavi
-%define name	python-%{module}
-%define version	4.2.0
-%define	rel		1
-%if %mdkversion < 201100
-%define release	%mkrel %{rel}
-%else
-%define	release %{rel}
-%endif
 
 Summary:	Enthought Tool Suite - scientific data 3D visualizer
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:	    python-%{module}
+Version:	4.2.0
+Release:	2
 Source0:	http://www.enthought.com/repo/ets/%{module}-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
 Url:		https://github.com/enthought/mayavi/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Obsoletes:	python-enthought-mayavi2
 Obsoletes:	python-enthought-mayavi
 Obsoletes:	mayavi
@@ -25,11 +16,16 @@ Requires:	python-envisage >= 4.2.0
 Requires:	python-pyface >= 4.2.0
 Requires:	python-traits >= 4.2.0
 Requires:	python-traitsui >= 4.2.0
-Requires:	python-numpy >= 1.1.0, python-vtk, python-configobj
-BuildRequires:	x11-server-xvfb, procps
+Requires:	python-numpy >= 1.1.0
+Requires:	python-vtk
+Requires:	python-configobj
+BuildRequires:	x11-server-xvfb
+BuildRequires:	procps
 BuildRequires:	python-setupdocs >= 1.0.5
 BuildRequires:	python-setuptools >= 0.6c8
-BuildRequires:	python-numpy-devel >= 1.1.0, python-vtk >= 5.0
+BuildRequires:	python-numpy-devel >= 1.1.0
+BuildRequires:	python-vtk >= 5.0
+BuildRequires:	pkgconfig(lapack)
 
 %description
 MayaVi2 seeks to provide easy and interactive visualization of 3D data. It does
@@ -60,16 +56,27 @@ mv docs/build/mayavi/html html/mayavi
 mv docs/build/tvtk/html html/tvtk
 
 %install
-%__rm -rf %{buildroot}
 PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
-%clean
-%__rm -rf %{buildroot}
-
 %files 
-%defattr(-,root,root)
 %doc *.txt *.rst examples/ html/
 %_bindir/mayavi2
 %_bindir/tvtk_doc
 %py_platsitedir/%{module}*
 %py_platsitedir/tvtk*
+
+
+%changelog
+* Tue Aug 14 2012 Lev Givon <lev@mandriva.org> 4.2.0-1
++ Revision: 814739
+- Update to 4.2.0.
+
+* Tue Dec 27 2011 Lev Givon <lev@mandriva.org> 4.1.0-1
++ Revision: 745716
+- Update to 4.1.0.
+
+* Thu Jul 07 2011 Lev Givon <lev@mandriva.org> 4.0.0-1
++ Revision: 689256
+- import python-mayavi
+
+
