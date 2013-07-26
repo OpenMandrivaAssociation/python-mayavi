@@ -1,2 +1,4 @@
+removed_sources:
+  mayavi-4.2.0.tar.gz: 8497e28161b263595539b4114ae3824950562295
 sources:
-  "mayavi-4.2.0.tar.gz": 8497e28161b263595539b4114ae3824950562295
+  mayavi-4.3.0.tar.gz: b5acdb6e8f6e750600d97a58b9a196ce434aca6f
