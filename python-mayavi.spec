@@ -2,9 +2,9 @@
 
 Summary:	Enthought Tool Suite - scientific data 3D visualizer
 Name:	    python-%{module}
-Version:	4.3.0
+Version:	4.3.1
 Release:	1
-Source0:	https://www.enthought.com/repo/ets/mayavi-%{version}.tar.gz
+Source0:	http://www.enthought.com/repo/ets/mayavi-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
 Url:		https://github.com/enthought/mayavi/
@@ -60,8 +60,8 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %files 
 %doc *.txt *.rst examples/ html/
-%_bindir/mayavi2
-%_bindir/tvtk_doc
+%{_bindir}/mayavi2
+%{_bindir}/tvtk_doc
 %py_platsitedir/%{module}*
 %py_platsitedir/tvtk*
 
@@ -78,6 +78,7 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 * Thu Jul 07 2011 Lev Givon <lev@mandriva.org> 4.0.0-1
 + Revision: 689256
 - import python-mayavi
+
 
 
 
