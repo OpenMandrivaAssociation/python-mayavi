@@ -3,7 +3,7 @@
 Summary:	Enthought Tool Suite - scientific data 3D visualizer
 Name:	    python-%{module}
 Version:	4.3.1
-Release:	1
+Release:	2
 Source0:	http://www.enthought.com/repo/ets/mayavi-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
